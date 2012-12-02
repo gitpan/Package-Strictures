@@ -2,9 +2,12 @@ use strict;
 use warnings;
 
 package Package::Strictures;
-our $VERSION = '0.01001318';
-
-
+BEGIN {
+  $Package::Strictures::AUTHORITY = 'cpan:KENTNL';
+}
+{
+  $Package::Strictures::VERSION = '0.01001319';
+}
 
 use Package::Strictures::Registry;
 use Carp ();
@@ -84,8 +87,8 @@ sub _setup_for_package {
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -94,30 +97,13 @@ Package::Strictures - Facilitate toggling validation code at users request, with
 
 =head1 VERSION
 
-version 0.01001318
-
-=head1 DESCRIPTION
-
-Often, I find myself in a bind, where I have code I want to do things properly, so it will detect
-of its own accord ( at run time ) misuses of varying data-structures or methods, but the very same
-tools that would be used to analyse and assure that things are going correctly, result in substantial
-performance penalties.
-
-This module, and the infrastructure I hope builds on top of it, may hopefully provide an 'in' that lets me have the best of both worlds,
-fast on the production server, and concise when trying to debug it ( that is, not having to manually desk-check the whole execution cycle
-through various functions and modules just to find which level things are going wrong at ).
-
-In an ideal world, code would be both fast and concise, however, that is a future fantasy, and this here instead aims to produce 80% of the same
-benefits, but now, instead of never.
+version 0.01001319
 
 =head1 SYNOPSIS
 
 =head2 IMPLEMENTING MODULES
 
   package Foo::Bar::Baz;
-our $VERSION = '0.01001318';
-
-
 
   use Package::Strictures::Register -setup => {
       -strictures => {
@@ -145,9 +131,19 @@ See L<Package::Strictures::Register> for more detail.
 
   /* Previously eliminated code now runs.
 
-=cut
+=head1 DESCRIPTION
 
-=pod
+Often, I find myself in a bind, where I have code I want to do things properly, so it will detect
+of its own accord ( at run time ) misuses of varying data-structures or methods, but the very same
+tools that would be used to analyse and assure that things are going correctly, result in substantial
+performance penalties.
+
+This module, and the infrastructure I hope builds on top of it, may hopefully provide an 'in' that lets me have the best of both worlds,
+fast on the production server, and concise when trying to debug it ( that is, not having to manually desk-check the whole execution cycle
+through various functions and modules just to find which level things are going wrong at ).
+
+In an ideal world, code would be both fast and concise, however, that is a future fantasy, and this here instead aims to produce 80% of the same
+benefits, but now, instead of never.
 
 =head1 MINOR WARNING
 
@@ -159,10 +155,9 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Kent Fredric.
+This software is copyright (c) 2012 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

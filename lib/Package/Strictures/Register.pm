@@ -2,9 +2,12 @@ use strict;
 use warnings;
 
 package Package::Strictures::Register;
-our $VERSION = '0.01001318';
-
-
+BEGIN {
+  $Package::Strictures::Register::AUTHORITY = 'cpan:KENTNL';
+}
+{
+  $Package::Strictures::Register::VERSION = '0.01001319';
+}
 
 use Package::Strictures::Registry ();
 use Carp                          ();
@@ -108,8 +111,8 @@ sub _fetch_stricture_value {
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -118,7 +121,7 @@ Package::Strictures::Register - Create compile-time constants that can be tweake
 
 =head1 VERSION
 
-version 0.01001318
+version 0.01001319
 
 =head1 AUTHOR
 
@@ -126,10 +129,9 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Kent Fredric.
+This software is copyright (c) 2012 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
